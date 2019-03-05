@@ -11,9 +11,9 @@ function randomOpen(page="https://www.youtube.com/watch?v=dQw4w9WgXcQ",mintime=2
 }
 
 /*randomOpen wrapper, for easier usage. give it an object with certain
-  properties to set things
+  properties to set things. possible properties:
   minms,minsecs,minmins,maxms,maxsecs,maxmins: give times to combine to be max or min time
-  vid: the video to play*/
+  vid: the video url to play*/
 function randomOpen2(options)
 {
     var defaults={
