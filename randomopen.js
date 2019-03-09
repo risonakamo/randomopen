@@ -1,20 +1,8 @@
-/*after a random period of time, navigate to a page.
-  page: url to go to
-  mintime: minimum milleseconds
-  maxtime: max milleseconds*/
-function randomOpen(page="https://www.youtube.com/watch?v=dQw4w9WgXcQ",mintime=2000,maxtime=30000)
-{
-    console.log("get ready....");
-    return setTimeout(()=>{
-        window.location.href=page;
-    },Math.floor(Math.random()*(maxtime-mintime))+mintime);
-}
-
 /*randomOpen wrapper, for easier usage. give it an object with certain
   properties to set things. possible properties:
   minms,minsecs,minmins,maxms,maxsecs,maxmins: give times to combine to be max or min time
   vid: the video url to play*/
-function randomOpen2(options)
+function randomOpen(options)
 {
     var defaults={
         mintime:2000,
@@ -78,5 +66,19 @@ function randomOpen2(options)
     }
 
     console.log(options);
-    randomOpen(options.vid,options.mintime,options.maxtime);
+    _randomOpen(options.vid,options.mintime,options.maxtime);
+}
+
+/*after a random period of time, navigate to a page.
+  page: url to go to
+  mintime: minimum milleseconds
+  maxtime: max milleseconds*/
+function _randomOpen(page="https://www.youtube.com/watch?v=dQw4w9WgXcQ",mintime=2000,maxtime=30000)
+{
+    console.log("get ready....");
+    var randomTime=Math.floor(Math.random()*(maxtime-mintime))+mintime;
+    return setTimeout(()=>{
+        console.log(randomTime);
+        window.location.href=page;
+    },randomTime);
 }
